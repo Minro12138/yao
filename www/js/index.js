@@ -2,15 +2,13 @@ document.addEventListener("deviceready", onDeviceready);
 
 var pic = new Array('car.png', 'house.png', 'money.png');
 var name = new Array("车房钱");
-var opac = 0;
 var all_roll = 0;
 var u_roll = 0;
-var timeId = null;
-// var rang = 0;
 
 function onDeviceready() {
     console.log('启动。。。');
     $('#test1').click(function () {
+        $("#shake").css("display","none");
         $('#test1').text("再摇一次");
         $("#yaoimg").animate({
             height: '0',
@@ -57,31 +55,10 @@ function start() {
         console.log("显示照片");
         $("#heci").fadeIn(2000);
         console.log("显示文字");
+        $("#shake").css("display","none");
     });
     console.log('上滑1');
-
-    // $("#yaoimg").animate({
-    //     height: '50%',
-    //     width: '80%',
-    //     opacity:'1'
-    // });
-    // $("#shakeimg").css({"height":"150px","width":"150px","display":"block"});
-    // console.log("显示照片");
-    // $("#heci").fadeIn(2000);
-    // console.log("显示文字");
 }
-
-//---调整样式--
-// function pic_change() {
-//     if (opac == 1) {
-//         console.log('停止定时器');
-//         clearInterval(timeId);
-//     } else {
-//         opac = opac + 0.04;
-//         $('#shakeimg').css("opacity", opac);
-//         $('#heci').css("opacity", opac);
-//     }
-// }
 
 //---监视设备的加速度
 function startWatch() {
@@ -112,6 +89,8 @@ function onSuccess(accelerometer) {
         navigator.vibrate(300); //震动反馈
         if (u_roll > 1) { //判定这个为摇动，开始显示图片
             //摇一摇的动画
+            $("#shake").css("display","block");
+
             $("#shakebottom").animate({
                 height: '-=150px',
                 marginTop: '150px'
@@ -129,12 +108,6 @@ function onSuccess(accelerometer) {
             //调用函数开始显示图片
             start();
             console.log('显示动画并开始显示图片');
-            //图片变大
-            // $("#shakeimg").animate({
-            //     height: '+=100px',
-            //     width: '+=100px'
-            // });
-            // console.log('变大');
         }
     } else {
         all_roll++;
