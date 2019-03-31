@@ -1,55 +1,62 @@
-#flower{
+#flower {
     margin: auto;
     text-align: center;
 }
-#flowerdiv{
+
+#flowerdiv {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height:300px ;
+    height: 300px;
     padding: 0%;
     margin: 0%;
     background-color: #1d1d1d;
 }
-#yao{
+
+#yao {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#yaoimg{
+
+#yaoimg {
     text-align: center;
 }
-.content{
+
+.content {
     position: absolute;
     top: 0%;
-    left:0%;
+    left: 0%;
     bottom: 0%;
     right: 0%;
     margin: 0%;
     padding: 0%;
     height: auto;
 }
-#content{
-    background-color:#2a2a2a;
+
+#content {
+    background-color: #2a2a2a;
 }
-#content2{
+
+#content2 {
     margin: 0%;
     padding: 0%;
     background: url("../img/flower.png") no-repeat center;
 }
 
-#shake{
+#shake {
     background: url("../img/flower.png") no-repeat center;
     position: absolute;
     top: 0%;
-    left:0%;
+    left: 0%;
     bottom: 0%;
     right: 0%;
 }
-#shaketop{
+
+#shaketop {
     background-color: #2a2a2a;
     position: absolute;
     width: 100%;
@@ -64,7 +71,8 @@
     align-items: flex-end;
     overflow: hidden;
 }
-#shakebottom{
+
+#shakebottom {
     background-color: #2a2a2a;
     position: absolute;
     width: 100%;
@@ -79,22 +87,39 @@
     height: 50%;
     overflow: hidden;
 }
-#yaoimg{
-    /* opacity: 0; */
+
+#yaoimg {
+    opacity: 0;
+    background-color: #d81515;
     float: left;
     position: absolute;
+    width: 70%;
+    height: 50%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%); 
+    transform: translate(-50%, -50%);
+    border-style: inset;
+    border-width: 5px;
+    border-color: aqua;
 }
-#heci{
+
+#heci {
     /* opacity: 0; */
     color: yellow;
     float: left;
     position: absolute;
+    width: 90%;
     left: 50%;
-    top: 70%;
-    transform: translate(-50%,-50%); 
+    top: 80%;
+    transform: translate(-50%, -50%);
+}
+
+#shakeimg {
+    float: left;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -102,10 +127,11 @@
 
 
 
-.foot{
+.foot {
     background-color: #2a2a2a;
 }
-body{
+
+body {
     padding: 0%;
     margin: 0%;
 }

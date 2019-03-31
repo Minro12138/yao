@@ -11,20 +11,29 @@ var timeId = null;
 function onDeviceready() {
     console.log('启动。。。');
     $('#test1').click(function () {
-        $("#shakeimg").animate({
-            height: '-=100px',
-            width: '-=100px'
+        $('#test1').text("再摇一次");
+        $("#yaoimg").animate({
+            height: '0',
+            width: '0',
+            borderWidth:'0px'
         });
-        $('#heci').css("display","none");
-        opac = 0;
+        $('#heci').css("display", "none");
+        $('#shakeimg').css("display", "none");
         console.log("已重置样式");
         console.log('触发按钮');
         startWatch();
     });
 }
 
-// ---计时器，用于执行样式调整--
+// ---用于执行样式调整--
 function start() {
+    var rang = Math.floor(Math.random() * 3); //随机生成0-2的数字，方便取出图片
+    console.log(rang);
+    $('#shakeimg').attr("src", "img/" + pic[rang]);
+    console.log(pic[rang]);
+    $('#heci').text("恭喜你，摇出了：" + name[rang] + "!!!");
+    console.log(name[rang]);
+
     $("#shakebottom").animate({
         height: '+=150px',
         marginTop: '0px'
@@ -33,21 +42,33 @@ function start() {
     $("#shaketop").animate({
         height: '+=150px',
         marginBottom: '0px'
+    }, function () {
+        $("#yaoimg").animate({
+            height: '50%',
+            width: '80%',
+            opacity: '1',
+            borderWidth:'5px'
+        });
+        $("#shakeimg").css({
+            "height": "150px",
+            "width": "150px",
+            "display": "block"
+        });
+        console.log("显示照片");
+        $("#heci").fadeIn(2000);
+        console.log("显示文字");
     });
     console.log('上滑1');
 
-    var rang = Math.floor(Math.random() * 3); //随机生成0-2的数字，方便取出图片
-    console.log(rang);
-    $('#shakeimg').attr("src", "img/" + pic[rang]);
-    console.log(pic[rang]);
-    $('#heci').text("恭喜你，摇出了：" + name[rang] + "!!!");
-    console.log(name[rang]);
-    // console.log('调用定时器来显示图片');
-    // timeId = setInterval(pic_change, 50);
-    $("#shakeimg").fadeIn(500);
-    console.log("显示照片");
-    $("#heci").fadeIn(3000);
-    console.log("显示文字");
+    // $("#yaoimg").animate({
+    //     height: '50%',
+    //     width: '80%',
+    //     opacity:'1'
+    // });
+    // $("#shakeimg").css({"height":"150px","width":"150px","display":"block"});
+    // console.log("显示照片");
+    // $("#heci").fadeIn(2000);
+    // console.log("显示文字");
 }
 
 //---调整样式--
@@ -109,11 +130,11 @@ function onSuccess(accelerometer) {
             start();
             console.log('显示动画并开始显示图片');
             //图片变大
-            $("#shakeimg").animate({
-                height: '+=100px',
-                width: '+=100px'
-            });
-            console.log('变大');
+            // $("#shakeimg").animate({
+            //     height: '+=100px',
+            //     width: '+=100px'
+            // });
+            // console.log('变大');
         }
     } else {
         all_roll++;
