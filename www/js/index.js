@@ -8,6 +8,7 @@ var u_roll = 0;
 function onDeviceready() {
     console.log('启动。。。');
     $('#test1').click(function () {
+        //重置样式
         $("#shake").css("display","none");
         $('#test1').text("再摇一次");
         $("#yaoimg").animate({
@@ -17,13 +18,12 @@ function onDeviceready() {
         });
         $('#heci').css("display", "none");
         $('#shakeimg').css("display", "none");
-        console.log("已重置样式");
         console.log('触发按钮');
         startWatch();
     });
 }
 
-// ---用于执行样式调整--
+// ---用于处理动画---
 function start() {
     var rang = Math.floor(Math.random() * 3); //随机生成0-2的数字，方便取出图片
     console.log(rang);
@@ -40,7 +40,7 @@ function start() {
     $("#shaketop").animate({
         height: '+=150px',
         marginBottom: '0px'
-    }, function () {
+    }, function () {    //用动画显示随机生成的图片
         $("#yaoimg").animate({
             height: '50%',
             width: '80%',
